@@ -1,5 +1,10 @@
 import { FaGraduationCap } from "react-icons/fa";
 import { motion } from "framer-motion";
+import {
+  cardClass,
+  textPrimary,
+  textSecondary,
+} from "../theme/themeClasses";
 
 export default function Education() {
   const education = [
@@ -18,7 +23,7 @@ export default function Education() {
   ];
 
   return (
-    <section id="education" className="py-32 bg-slate-50 px-6">
+    <section id="education" className="py-32 bg-slate-50 dark:bg-slate-900 px-6">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -30,14 +35,14 @@ export default function Education() {
             Education
           </p>
 
-          <h2 className="text-5xl font-bold text-slate-900 mb-16">
+          <h2 className="text-5xl font-bold text-slate-900 dark:text-white mb-16">
             My Academic Journey.
           </h2>
 
           <div className="relative max-w-4xl">
             {/* Timeline Line */}
 
-            <div className="absolute left-5 top-0 bottom-0 w-[2px] bg-blue-200" />
+            <div className="absolute left-5 top-0 bottom-0 w-[2px] bg-blue-200 dark:bg-blue-900" />
 
             {education.map((item) => (
               <div key={item.degree} className="relative flex gap-8 mb-12">
@@ -65,6 +70,7 @@ export default function Education() {
                 <div
                   className="
                   bg-slate-50
+                  dark:bg-slate-900
                   border
                   border-slate-200
                   rounded-2xl
@@ -81,7 +87,9 @@ export default function Education() {
                     py-1
                     rounded-full
                     bg-blue-100
+                    dark:bg-blue-500/10
                     text-blue-700
+                    dark:text-blue-400
                     text-sm
                     font-medium
                     mb-4

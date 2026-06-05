@@ -1,3 +1,9 @@
+import {
+  cardClass,
+  textPrimary,
+  textSecondary,
+} from "../theme/themeClasses";
+
 export default function Footer() {
   return (
     <footer className="bg-slate-950 py-6 px-6">

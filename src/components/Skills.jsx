@@ -1,5 +1,10 @@
 import { FaServer, FaLaptopCode, FaDatabase, FaTools } from "react-icons/fa";
 import { motion } from "framer-motion";
+import {
+  cardClass,
+  textPrimary,
+  textSecondary,
+} from "../theme/themeClasses";
 
 export default function Skills() {
   const skillGroups = [
@@ -26,7 +31,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-32 bg-slate-50 px-6">
+    <section id="skills" className="py-32 bg-slate-50 dark:bg-slate-950 px-6">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -38,7 +43,7 @@ export default function Skills() {
             Expertise
           </p>
 
-          <h2 className="text-5xl font-bold text-slate-900 mb-16">
+          <h2 className="text-5xl font-bold text-slate-900 dark:text-white mb-16">
             Technologies I work with.
           </h2>
 
@@ -48,20 +53,22 @@ export default function Skills() {
                 key={group.title}
                 className="
                 bg-white
+                dark:bg-slate-900
                 rounded-2xl
                 p-10
                 shadow-sm
                 border
                 border-slate-200
+                dark:border-slate-800
                 hover:shadow-lg
                 hover:-translate-y-1
                 transition-all duration-300
               "
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="text-blue-600 text-2xl">{group.icon}</div>
+                  <div className="text-blue-600 dark:text-blue-400 text-2xl">{group.icon}</div>
 
-                  <h3 className="text-xl font-bold text-slate-900">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">
                     {group.title}
                   </h3>
                 </div>
@@ -77,9 +84,11 @@ export default function Skills() {
                       py-3
                       rounded-xl
                       bg-slate-50
+                      dark:bg-slate-800
                       border
                       border-slate-200
                       text-slate-700
+                      dark:text-slate-300
                     "
                     >
                       {skill}

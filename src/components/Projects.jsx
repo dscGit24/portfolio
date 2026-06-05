@@ -1,4 +1,9 @@
 import { motion } from "framer-motion";
+import {
+  cardClass,
+  textPrimary,
+  textSecondary,
+} from "../theme/themeClasses";
 
 export default function Projects() {
   const features = [
@@ -19,7 +24,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="project" className="py-32 bg-white px-6">
+    <section id="project" className="py-32 bg-white dark:bg-slate-950 px-6">
       {" "}
       <div className="max-w-[1400px] mx-auto">
         <motion.div
@@ -32,15 +37,15 @@ export default function Projects() {
             Featured Project
           </p>
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-4">
             ● Completed Project
           </div>
 
-          <h2 className="text-5xl font-bold text-slate-900">
+          <h2 className="text-5xl font-bold text-slate-900 dark:text-white">
             Student Management System
           </h2>
 
-          <p className="text-slate-600 text-lg mt-6 max-w-3xl leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-300 text-lg mt-6 max-w-3xl leading-relaxed">
             A full-stack web application built using Spring Boot, React and
             PostgreSQL for managing student records, attendance, courses and
             academic information through a centralized and user-friendly
@@ -88,18 +93,18 @@ export default function Projects() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">Problem</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">Problem</h3>
 
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
               Managing student records manually can be time-consuming,
               error-prone, and difficult to maintain as data grows.
             </p>
 
-            <h3 className="text-2xl font-bold text-slate-900 mt-10 mb-4">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mt-10 mb-4">
               Solution
             </h3>
 
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
               Developed a centralized student management platform that
               simplifies student registration, attendance tracking, course
               management, and academic record maintenance.
@@ -111,7 +116,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6">
               Key Features
             </h3>
 
@@ -119,7 +124,7 @@ export default function Projects() {
               {features.map((feature) => (
                 <div
                   key={feature}
-                  className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-700"
+                  className="bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 rounded-xl p-4 text-slate-700"
                 >
                   ✓ {feature}
                 </div>
@@ -134,7 +139,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold text-slate-900 mb-6">
+          <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6">
             Technology Stack
           </h3>
 
@@ -149,6 +154,8 @@ export default function Projects() {
               border-blue-200
               bg-blue-50
               text-blue-700
+              dark:bg-slate-800
+              dark:text-slate-300
               font-medium
             "
               >

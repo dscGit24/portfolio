@@ -6,6 +6,11 @@ import {
   FaPhone,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
+import {
+  cardClass,
+  textPrimary,
+  textSecondary,
+} from "../theme/themeClasses";
 
 export default function Contact() {
   return (

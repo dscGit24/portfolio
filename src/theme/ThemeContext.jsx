@@ -5,18 +5,23 @@ import { createContext, useContext, useEffect, useState } from "react";
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "light"
-  );
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme) return savedTheme;
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  });
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
 
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle(
+      "dark",
+      theme === "dark"
+    );
   }, [theme]);
 
   const toggleTheme = () => {

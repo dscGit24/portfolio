@@ -1,7 +1,10 @@
-// src/components/HeroIllustration.jsx
-
 import developer from "../assets/developer.svg";
 import { motion } from "framer-motion";
+import {
+  cardClass,
+  textPrimary,
+  textSecondary,
+} from "../theme/themeClasses";
 
 export default function HeroIllustration() {
   return (
@@ -23,7 +26,7 @@ export default function HeroIllustration() {
       {/* Floating Cards */}
 
       <motion.div
-        className="absolute top-10 left-0 bg-white shadow-lg px-4 py-3 rounded-xl"
+        className="absolute top-10 left-0 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 dark:text-slate-400 shadow-lg px-4 py-3 rounded-xl"
         animate={{ y: [0, -10, 0] }}
         transition={{
           duration: 4,
@@ -34,7 +37,7 @@ export default function HeroIllustration() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-10 left-10 bg-white shadow-lg px-4 py-3 rounded-xl"
+        className="absolute bottom-10 left-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 dark:text-slate-400 shadow-lg px-4 py-3 rounded-xl"
         animate={{ y: [0, 10, 0] }}
         transition={{
           duration: 5,
@@ -45,7 +48,7 @@ export default function HeroIllustration() {
       </motion.div>
 
       <motion.div
-        className="absolute top-24 right-0 bg-white shadow-lg px-4 py-3 rounded-xl"
+        className="absolute top-24 right-0 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 dark:text-slate-400 shadow-lg px-4 py-3 rounded-xl"
         animate={{ y: [0, -10, 0] }}
         transition={{
           duration: 6,
@@ -56,7 +59,7 @@ export default function HeroIllustration() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-20 right-8 bg-white shadow-lg px-4 py-3 rounded-xl"
+        className="absolute bottom-20 right-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 dark:text-slate-400 shadow-lg px-4 py-3 rounded-xl"
         animate={{ y: [0, 10, 0] }}
         transition={{
           duration: 4.5,
