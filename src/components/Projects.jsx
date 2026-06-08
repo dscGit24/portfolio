@@ -124,7 +124,7 @@ export default function Projects() {
               {features.map((feature) => (
                 <div
                   key={feature}
-                  className="bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 rounded-xl p-4 text-slate-700"
+                  className="bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-800 rounded-xl p-4 text-slate-700"
                 >
                   ✓ {feature}
                 </div>
@@ -152,6 +152,7 @@ export default function Projects() {
               rounded-full
               border
               border-blue-200
+              dark:border-slate-800
               bg-blue-50
               text-blue-700
               dark:bg-slate-800

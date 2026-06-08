@@ -23,7 +23,7 @@ export default function Education() {
   ];
 
   return (
-    <section id="education" className="py-32 bg-slate-50 dark:bg-slate-900 px-6">
+    <section id="education" className="py-32 bg-slate-50 dark:bg-slate-950 px-6">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -73,6 +73,7 @@ export default function Education() {
                   dark:bg-slate-900
                   border
                   border-slate-200
+                  dark:border-slate-800
                   rounded-2xl
                   p-8
                   w-full
@@ -91,18 +92,18 @@ export default function Education() {
                     text-blue-700
                     dark:text-blue-400
                     text-sm
-                    font-medium
+                    font-semibold
                     mb-4
                   "
                   >
                     {item.duration}
                   </span>
 
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-400 mb-3">
                     {item.degree}
                   </h3>
 
-                  <p className="text-slate-600 leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-500 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
