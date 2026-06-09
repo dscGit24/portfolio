@@ -17,6 +17,10 @@ export default function Contact() {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -27,10 +31,14 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setLoading(true);
+    setSuccess("");
+    setError("");
+
     try {
       await sendContactMessage(formData);
 
-      alert("Message sent successfully!");
+      setSuccess("Message sent successfully! I'll get back to you soon.");
 
       setFormData({
         name: "",
@@ -38,8 +46,10 @@ export default function Contact() {
         subject: "",
         message: "",
       });
-    } catch (error) {
-      alert("Failed to send message.");
+    } catch (err) {
+      setError("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -89,6 +99,7 @@ export default function Contact() {
                   dark:bg-slate-950
                   dark:text-white
                 "
+                required
                 />
 
                 <input
@@ -111,11 +122,13 @@ export default function Contact() {
                   dark:bg-slate-950
                   dark:text-white
                 "
+                required
                 />
 
                 <input
                   type="text"
                   placeholder="Subject"
+                  maxLength={300}
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
@@ -133,11 +146,13 @@ export default function Contact() {
                   dark:bg-slate-950
                   dark:text-white
                 "
+                required
                 />
 
                 <textarea
                   rows="5"
                   placeholder="Your Message"
+                  maxLength={3000}
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -156,25 +171,56 @@ export default function Contact() {
                   dark:bg-slate-950
                   dark:text-white
                 "
+                required
                 />
 
                 <button
                   type="submit"
+                  disabled={loading}
                   className="
-                  bg-blue-600
-                  hover:bg-blue-700
-                  text-white
-                  px-8
-                  py-4
-                  rounded-xl
-                  font-semibold
-                  transition
-                  shadow-lg
-                  hover:shadow-xl
-                "
+                    bg-blue-600
+                    hover:bg-blue-700
+                    disabled:opacity-70
+                    disabled:cursor-not-allowed
+                    text-white
+                    px-8
+                    py-4
+                    rounded-xl
+                    font-semibold
+                    transition
+                    shadow-lg
+                    hover:shadow-xl
+                  "
                 >
-                  Send Message
+                  {loading ? "Sending..." : "Send Message"}
                 </button>
+                {success && (
+                  <div
+                    className="
+                      bg-green-100
+                      text-green-700
+                      px-4
+                      py-3
+                      rounded-xl
+                    "
+                  >
+                    {success}
+                  </div>
+                )}
+
+                {error && (
+                  <div
+                    className="
+                      bg-red-100
+                      text-red-700
+                      px-4
+                      py-3
+                      rounded-xl
+                    "
+                  >
+                    {error}
+                  </div>
+                )}
               </form>
             </div>
 
