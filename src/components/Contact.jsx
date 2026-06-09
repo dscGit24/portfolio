@@ -6,8 +6,43 @@ import {
   FaPhone,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { sendContactMessage } from "../services/contactService";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await sendContactMessage(formData);
+
+      alert("Message sent successfully!");
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      alert("Failed to send message.");
+    }
+  };
+
   return (
     <section id="contact" className="py-32 bg-white dark:bg-slate-950 px-6">
       <motion.div
@@ -33,10 +68,13 @@ export default function Contact() {
                 Send a Message
               </h3>
 
-              <form className="space-y-5">
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 <input
                   type="text"
                   placeholder="Your Name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="
                   w-full
                   px-5
@@ -56,6 +94,9 @@ export default function Contact() {
                 <input
                   type="email"
                   placeholder="Your Email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="
                   w-full
                   px-5
@@ -75,6 +116,9 @@ export default function Contact() {
                 <input
                   type="text"
                   placeholder="Subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   className="
                   w-full
                   px-5
@@ -94,6 +138,9 @@ export default function Contact() {
                 <textarea
                   rows="5"
                   placeholder="Your Message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   className="
                   w-full
                   px-5
@@ -135,7 +182,9 @@ export default function Contact() {
 
             <div className="flex flex-col gap-6">
               <div className="bg-slate-50 border border-slate-200 rounded-3xl p-10 dark:bg-slate-900 dark:border-slate-800">
-                <h3 className="text-2xl text-slate-900 dark:text-white font-bold mb-6">Contact Information</h3>
+                <h3 className="text-2xl text-slate-900 dark:text-white font-bold mb-6">
+                  Contact Information
+                </h3>
 
                 <div className="space-y-6">
                   <a
@@ -184,7 +233,9 @@ export default function Contact() {
 
                   <div className="flex items-center gap-4">
                     <FaMapMarkerAlt className="text-blue-600 text-xl" />
-                    <span className="text-slate-700 dark:text-slate-300">Ahmedabad, Gujarat</span>
+                    <span className="text-slate-700 dark:text-slate-300">
+                      Ahmedabad, Gujarat
+                    </span>
                   </div>
                 </div>
               </div>
