@@ -1,8 +1,7 @@
 import axios from "axios";
 import emailjs from "@emailjs/browser";
 
-const API_URL =
-  "https://portfolio-backend-gbth.onrender.com/api/contact";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
