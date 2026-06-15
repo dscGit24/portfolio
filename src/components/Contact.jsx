@@ -8,6 +8,7 @@ import {
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { sendContactMessage } from "../services/contactService";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -36,6 +37,8 @@ export default function Contact() {
     setError("");
 
     try {
+
+      // Send to NeonDB
       await sendContactMessage(formData);
 
       setSuccess("Message sent successfully! I'll get back to you soon.");
@@ -47,7 +50,7 @@ export default function Contact() {
         message: "",
       });
     } catch (err) {
-      setError("Failed to send message. Please try again.");
+      setError("Failed to send message. Please try again..");
     } finally {
       setLoading(false);
     }
@@ -99,7 +102,7 @@ export default function Contact() {
                   dark:bg-slate-950
                   dark:text-white
                 "
-                required
+                  required
                 />
 
                 <input
@@ -122,7 +125,7 @@ export default function Contact() {
                   dark:bg-slate-950
                   dark:text-white
                 "
-                required
+                  required
                 />
 
                 <input
@@ -146,7 +149,7 @@ export default function Contact() {
                   dark:bg-slate-950
                   dark:text-white
                 "
-                required
+                  required
                 />
 
                 <textarea
@@ -171,7 +174,7 @@ export default function Contact() {
                   dark:bg-slate-950
                   dark:text-white
                 "
-                required
+                  required
                 />
 
                 <button
