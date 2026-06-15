@@ -4,6 +4,16 @@ import emailjs from "@emailjs/browser";
 const API_URL =
   "https://portfolio-backend-gbth.onrender.com/api/contact";
 
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+
+const NOTIFICATION_TEMPLATE =
+  import.meta.env.VITE_EMAILJS_NOTIFICATION_TEMPLATE;
+
+const AUTOREPLY_TEMPLATE =
+  import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE;
+
 export const sendContactMessage = async (data) => {
 
   // 1. Save to database
@@ -15,9 +25,9 @@ export const sendContactMessage = async (data) => {
 
   await emailjs.send(
 
-    "service_portfolio",
+    SERVICE_ID,
 
-    "template_er5jptv",
+    NOTIFICATION_TEMPLATE,
 
     {
       from_name: data.name,
@@ -32,7 +42,7 @@ export const sendContactMessage = async (data) => {
 
     },
 
-    "GqW5yTLUdC8TWuyws"
+    PUBLIC_KEY
 
   );
 
@@ -41,9 +51,9 @@ export const sendContactMessage = async (data) => {
 
   await emailjs.send(
 
-    "service_portfolio",
+    SERVICE_ID,
 
-    "template_tg0uowi",
+    AUTOREPLY_TEMPLATE,
 
     {
       from_name: data.name,
@@ -54,7 +64,7 @@ export const sendContactMessage = async (data) => {
 
     },
 
-    "GqW5yTLUdC8TWuyws"
+    PUBLIC_KEY
 
   );
 
