@@ -47,9 +47,9 @@ export default function About() {
 
             <div>
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                I am an MCA student and Java Full Stack Developer passionate
-                about building scalable web applications using Spring Boot,
-                React and PostgreSQL.
+                I am Disha Chotai, a Java Full Stack Developer passionate about building 
+                scalable web applications using Spring Boot, React, PostgreSQL, and modern web technologies. 
+                I enjoy creating practical software solutions and continuously learning new technologies.
               </p>
 
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
