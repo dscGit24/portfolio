@@ -41,7 +41,7 @@ export default function Contact() {
       // Send to NeonDB
       await sendContactMessage(formData);
 
-      setSuccess("Message sent successfully! I'll get back to you soon.");
+      setSuccess("Your message has been sent successfully. Thank you for reaching out!");
 
       setFormData({
         name: "",
